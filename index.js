@@ -34,7 +34,7 @@ client.on('interactionCreate', async interaction => {
     const { commandName } = interaction;
 
     // 현재 맵
-    if (commandName === 'map') {
+    if (commandName == 'map') {
         try {
             const test = await getHtmlForMap()
                 .then((html) => {
@@ -60,7 +60,7 @@ client.on('interactionCreate', async interaction => {
         }
     }
     // 맵 세개까지
-    else if (commandName === 'maplist') {
+    else if (commandName == 'maplist') {
         try {
             const test = await getHtmlForMapList()
                 .then((html) => {
@@ -77,8 +77,8 @@ client.on('interactionCreate', async interaction => {
                 })
             let reply = '';
             for (let i = 0; i < 3; i++) {
-                const hour = (parseInt(test.time[i].split(' ')[4].split(':')[0]) + 9) % 24;
-                const min = test.time[i].split(' ')[4].split(':')[1];
+                const hour = (parseInt(test.time[i].split(' ')[3].split(':')[0]) + 9) % 24;
+                const min = test.time[i].split(' ')[3].split(':')[1];
                 console.log(hour, min)
                 reply += `맵 : ${test.map[i]}\t종료시간 : ${hour}시 ${min}분\n`
             }
