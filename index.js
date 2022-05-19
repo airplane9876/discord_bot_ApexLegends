@@ -78,7 +78,7 @@ client.on('interactionCreate', async interaction => {
             let reply = '';
             for (let i = 0; i < 3; i++) {
                 const hour = (parseInt(test.time[i].split(' ')[3].split(':')[0]) + 9) % 24;
-                const min = test.time[i].split(' ')[3].split(':')[1];
+                const min = test.time[i].split(' ')[3].split(':')[1].slice(0, 2);
                 console.log(hour, min)
                 reply += `맵 : ${test.map[i]}\t종료시간 : ${hour}시 ${min}분\n`
             }
